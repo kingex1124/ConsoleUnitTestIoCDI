@@ -89,5 +89,12 @@ namespace ConsoleMocks
             //return _checkInFee.GetList().Where(o => o.ID == 1).First();
             return _checkInFee.GetListByID(id).First();
         }
+
+        public string GetStr(AVirtualTest aVirtualTest)
+        {
+            AVirtualTest vs = aVirtualTest;
+
+            return vs.GetString();
+        }
     }
 }

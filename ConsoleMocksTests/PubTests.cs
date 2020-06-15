@@ -154,5 +154,19 @@ namespace ConsoleMocks.Tests
             Assert.AreEqual(c1, r);
 
         }
+
+        //abstract寫mock
+        [TestMethod]
+        public void TestGetString()
+        {
+            ICheckInFee stubCheckInFee = MockRepository.GenerateStub<ICheckInFee>();
+
+            AVirtualTest avt = MockRepository.GenerateStub<AVirtualTest>();
+
+            avt.Stub(o => o.GetString()).Return("abc");
+            Pub target = new Pub(stubCheckInFee);
+
+            var res = target.GetStr(avt);
+        }
     }
 }
