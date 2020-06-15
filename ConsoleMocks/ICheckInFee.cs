@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleMocks.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,5 +10,9 @@ namespace ConsoleMocks
     public interface ICheckInFee
     {
         decimal GetFee(Customer customer);
+
+        List<CustomData> GetList();
+
+        List<CustomData> GetListByID(int id);
     }
 }

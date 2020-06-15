@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Rhino.Mocks;
+using ConsoleMocks.Model;
 
 namespace ConsoleMocks.Tests
 {
@@ -102,6 +103,56 @@ namespace ConsoleMocks.Tests
 
                 var count = target.CheckIn(customers);
             }
+        }
+
+        [TestMethod]
+        public void TestList()
+        {
+            //arrange
+            ICheckInFee stubCheckInFee = MockRepository.GenerateStub<ICheckInFee>();
+
+            CustomData c1 = new CustomData() { ID = 1, FirstName = "a", LastName = "B" };
+            CustomData c2 = new CustomData() { ID = 2, FirstName = "x", LastName = "Y" };
+
+            stubCheckInFee.Stub(o => o.GetList()).Return(new List<Model.CustomData>()
+            {
+                c1,c2
+            });
+
+            Pub target = new Pub(stubCheckInFee);
+
+            var r = target.GetData();
+
+            Assert.AreEqual(c1, r);
+        }
+
+        //可以同時mock 兩組
+        [TestMethod]
+        public void TestListByID()
+        {
+            //arrange
+            ICheckInFee stubCheckInFee = MockRepository.GenerateStub<ICheckInFee>();
+
+            CustomData c1 = new CustomData() { ID = 1, FirstName = "a", LastName = "B" };
+            CustomData c2 = new CustomData() { ID = 2, FirstName = "x", LastName = "Y" };
+
+            stubCheckInFee.Stub(o => o.GetList()).Return(new List<Model.CustomData>()
+            {
+                c1,c2
+            });
+
+            stubCheckInFee.Stub(o => o.GetListByID(Arg<int>.Is.Anything)).Return(new List<Model.CustomData>()
+            {
+                c1,c2
+            });
+
+            Pub target = new Pub(stubCheckInFee);
+            // 下方這行為錯誤寫法 只有抽象類別 介面才可以Mock
+            //target.Stub(o => o.GetData()).Return(c1);
+            var r = target.GetDataByID(1);
+
+            Assert.AreEqual(c1, r);
+
         }
     }
 }

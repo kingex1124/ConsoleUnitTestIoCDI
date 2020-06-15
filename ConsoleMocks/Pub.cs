@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleMocks.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -69,6 +70,24 @@ namespace ConsoleMocks
         public decimal GetInCome()
         {
             return this._inCome;
+        }
+
+        public CustomData GetData()
+        {
+
+            int count = _checkInFee.GetList().Where(o => o.ID == 1).Count();
+            //return _checkInFee.GetList().First();
+            //return _checkInFee.GetList().Where(o => o.ID == 1).First();
+            return _checkInFee.GetList().Find(o => o.ID == 1);
+        }
+
+        public CustomData GetDataByID(int id)
+        {
+
+            int count = _checkInFee.GetList().Where(o => o.ID == 1).Count();
+            //return _checkInFee.GetList().First();
+            //return _checkInFee.GetList().Where(o => o.ID == 1).First();
+            return _checkInFee.GetListByID(id).First();
         }
     }
 }
