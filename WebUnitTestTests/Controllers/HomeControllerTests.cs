@@ -150,7 +150,7 @@ namespace WebUnitTest.Controllers.Tests
 
     //    FunctionItem resultFunctionItem = new FunctionItem() { Id = 2, Name = "C", ControllerName = "FunctionItem", Sort = 2 };
 
-    //    var ret = functionItemService.Stub(o => o.FindAll(Arg<Expression<Func<FunctionItem, bool>>>.Is.Anything)).Return(resultData);
+    //    functionItemService.Stub(o => o.FindAll(Arg<Expression<Func<FunctionItem, bool>>>.Is.Anything)).Return(resultData);
 
     //    functionItemService.Stub(o => o.Update(Arg<FunctionItem>.Is.Anything, Arg<PermissionType[]>.Is.Anything)).Return(resultFunctionItem);
 
