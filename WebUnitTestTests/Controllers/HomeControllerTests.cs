@@ -130,4 +130,42 @@ namespace WebUnitTest.Controllers.Tests
 
     //    Assert.AreEqual(result.TableMaxPage, goal.TableMaxPage);
     //}
+
+    //以下範本
+    //[TestMethod()]
+    //public void EditTest1()
+    //{
+    //    //arrange
+    //    FunctionItemController target = new FunctionItemController(functionItemService, functionItemBO);
+
+    //    List<FunctionItem> resultData = new List<FunctionItem>() {
+    //            new FunctionItem() { Id = 1, Name = "A", ControllerName = "FunctionItem", Sort = 1 },
+    //            new FunctionItem() { Id = 2, Name = "B", ControllerName = "FunctionItem", ParentId = 1, Sort = 1 },
+    //            new FunctionItem() { Id = 3, Name = "C", ControllerName = "FunctionItem", ParentId = 1, Sort = 1 },
+    //            new FunctionItem() { Id = 4, Name = "D", ControllerName = "FunctionItem", ParentId = 1, Sort = 1 },
+    //            new FunctionItem() { Id = 5, Name = "E", ControllerName = "FunctionItem", ParentId = 1, Sort = 1 }
+    //        };
+
+    //    FunctionItem functionItem = new FunctionItem() { Id = 2, Name = "B", ControllerName = "FunctionItem", Sort = 1 };
+
+    //    FunctionItem resultFunctionItem = new FunctionItem() { Id = 2, Name = "C", ControllerName = "FunctionItem", Sort = 2 };
+
+    //    var ret = functionItemService.Stub(o => o.FindAll(Arg<Expression<Func<FunctionItem, bool>>>.Is.Anything)).Return(resultData);
+
+    //    functionItemService.Stub(o => o.Update(Arg<FunctionItem>.Is.Anything, Arg<PermissionType[]>.Is.Anything)).Return(resultFunctionItem);
+
+    //    // act
+    //    var result = target.Edit(functionItem, new PermissionType[] { PermissionType.Create, PermissionType.Delete, PermissionType.Query, PermissionType.Update }) as RedirectToRouteResult;
+    //    // assert 測試 RedirectToRouteResult的情況
+    //    Assert.IsTrue(string.IsNullOrEmpty(result.RouteValues["action"].ToString()) || result.RouteValues["action"].ToString() == "Index");
+
+    //    // arrange
+    //    functionItemService.Stub(o => o.Update(Arg<FunctionItem>.Is.Anything, Arg<PermissionType[]>.Is.Anything)).Return(null);
+
+    //    // act
+    //    var result2 = target.Edit(functionItem, new PermissionType[] { PermissionType.Create, PermissionType.Delete, PermissionType.Query, PermissionType.Update }) as ViewResult;
+
+    //    // assert
+    //    Assert.AreEqual((FunctionItem)result2.Model, functionItem);
+    //}
 }
