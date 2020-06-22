@@ -12,3 +12,8 @@
 /ConsoleMocks/obj/Debug
 /ConsoleMocksTests/bin/Debug
 /ConsoleMocksTests/obj/Debug
+/.vs/ConsoleUnitTestIoCDI/config
+/WebUnitTest/bin
+/WebUnitTest/obj/Debug
+/WebUnitTestTests/obj/Debug
+/WebUnitTestTests/bin/Debug
