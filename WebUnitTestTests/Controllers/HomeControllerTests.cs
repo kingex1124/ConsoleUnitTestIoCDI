@@ -12,6 +12,10 @@ namespace WebUnitTest.Controllers.Tests
     [TestClass()]
     public class HomeControllerTests
     {
+        // 注入範本
+        //IFunctionItemService functionItemService = MockRepository.GenerateStub<IFunctionItemService>();
+        //IFunctionItemBO functionItemBO = MockRepository.GenerateStub<IFunctionItemBO>();
+
         [TestMethod()]
         public void IndexTest()
         {
