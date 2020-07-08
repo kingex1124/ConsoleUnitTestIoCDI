@@ -35,6 +35,29 @@ namespace WebUnitTest.Controllers.Tests
             //Assert.AreEqual(((XXXViewModel)result.Model).ModelAttribute, dataResult);
             // 比對Controller Url的寫法
             //Assert.IsTrue(string.IsNullOrEmpty(result.ViewName) || result.ViewName == "Index");
+
+
+        }
+
+        /// <summary>
+        /// 以下兩者為return RedirectToAction 跟 View的寫法 
+        /// </summary>
+        [TestMethod]
+        public void IndexTest1()
+        {
+            HomeController homeController = new HomeController();
+            ActionResult result = homeController.Index(10);
+            Assert.IsInstanceOfType(result, typeof(RedirectToRouteResult));
+            RedirectToRouteResult routeResult = result as RedirectToRouteResult;
+            Assert.AreEqual(routeResult.RouteValues["action"], "asd");
+        }
+
+        [TestMethod]
+        public void IndexTest2()
+        {
+            HomeController homeController = new HomeController();
+            ActionResult result = homeController.Index(1);
+            Assert.IsInstanceOfType(result, typeof(ViewResult));
         }
     }
 
@@ -172,4 +195,5 @@ namespace WebUnitTest.Controllers.Tests
     //    // assert
     //    Assert.AreEqual((FunctionItem)result2.Model, functionItem);
     //}
+
 }

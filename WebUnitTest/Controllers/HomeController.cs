@@ -13,5 +13,13 @@ namespace WebUnitTest.Controllers
         {
             return View();
         }
+
+        public ActionResult Index(int id)
+        {
+            if (id != 1)
+                return RedirectToAction("asd");
+            else
+                return View();
+        }
     }
 }
